@@ -5,6 +5,7 @@ const app = express();
 
 const dotenv = require('dotenv');
 const cors = require('cors');
+const { Console } = require('console');
 dotenv.config();
 
 const FoodItemsRoute = require('./routes/foodItemsRoutes')
