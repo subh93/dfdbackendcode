@@ -5,6 +5,7 @@ const app = express();
 
 const dotenv = require('dotenv');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 const { Console } = require('console');
 dotenv.config();
 
@@ -13,12 +14,8 @@ const FoodCategoriesRoute = require('./routes/foodCategoryRoutes')
 const UserRoute = require('./routes/userRoute')
 const ordersRoute = require('./routes/ordersRoute')
 
-app.use(cors(
-    {
-        origin:"http://localhost:3000"
-    }
-));
-app.use(express.json());
+app.use(cors());
+app.use(bodyParser.json());
 
 app.get("/",(req,res)=>{
     res.send("Server Working");
