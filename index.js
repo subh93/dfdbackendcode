@@ -13,7 +13,11 @@ const FoodCategoriesRoute = require('./routes/foodCategoryRoutes')
 const UserRoute = require('./routes/userRoute')
 const ordersRoute = require('./routes/ordersRoute')
 
-app.use(cors());
+app.use(cors(
+    {
+        origin:"*"
+    }
+));
 app.use(express.json());
 
 app.get("/",(req,res)=>{
