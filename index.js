@@ -4,12 +4,15 @@ const express = require('express');
 const app = express();
 
 const dotenv = require('dotenv');
+const cors = require('cors');
 dotenv.config();
 
 const FoodItemsRoute = require('./routes/foodItemsRoutes')
 const FoodCategoriesRoute = require('./routes/foodCategoryRoutes')
 const UserRoute = require('./routes/userRoute')
 const ordersRoute = require('./routes/ordersRoute')
+
+app.use(cors());
 app.use(express.json());
 
 app.get("/",(req,res)=>{
