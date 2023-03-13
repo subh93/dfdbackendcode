@@ -12,7 +12,7 @@ const FoodCategoriesRoute = require('./routes/foodCategoryRoutes')
 const UserRoute = require('./routes/userRoute')
 const ordersRoute = require('./routes/ordersRoute')
 
-app.use(cors({origin:"*"}));
+app.use(cors());
 app.use(express.json());
 
 app.get("/",(req,res)=>{
@@ -25,7 +25,13 @@ app.use('/api', UserRoute);
 app.use('/api', ordersRoute);
 
 
-app.listen(process.env.PORT, async()=>{
-    await db;
-    console.log(`Server is running on ${process.env.PORT}`)
+// app.listen(process.env.PORT, async()=>{
+//     await db;
+//     console.log(`Server is running on ${process.env.PORT}`)
+// })
+
+db().then(()=>{
+    app.listen(process.env.PORT,()=>{
+    console.log(`Listening on port ${process.env.PORT}`)
+  })
 })
