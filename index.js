@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 const { Console } = require('console');
 
 dotenv.config();
-app.use(cors());
+app.use(cors({origin: '*'}));
 app.use(bodyParser.json());
 
 app.get("/",(req,res)=>{
